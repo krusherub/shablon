@@ -11,15 +11,12 @@ use App\Post;
 |
 */
 
-Route::get('/', function () {
-	$posts = Post::all();
-	
-    return view('index')->with('posts', $posts);
-});
 
-Route::get('/post', function () {
-	 return view ('post');
-});
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@Index')->name('home');
+
+Route::get('/post', 'PostController@Index')->name('post');
+
+Route::get('/about', 'AboutController@Index')->name('about');
+
+Route::get('/contact', 'ContactController@Index')->name('contact');
